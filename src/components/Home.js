@@ -3,6 +3,8 @@ import firebase from '../firebase';
 import { useAuth } from "../contexts/AuthContext"
 import Navb from './layout/Navbar'
 import 'firebase/firestore';
+import { Link, useHistory } from "react-router-dom"
+import moment from 'moment'
 import { Form, Button, Card, Container, Col } from "react-bootstrap"
 
 function Home() {
@@ -12,6 +14,7 @@ function Home() {
     const currentUserEmail = currentUser ? currentUser.email : null;
     const authorEmail = currentUser ? currentUser.email : null;
     const [title, setTitle] = useState("");
+    const history = useHistory()
 
 
     const [content, setContent] = useState("");
@@ -38,6 +41,7 @@ function Home() {
                 note,
                 mNumber,
                 type,
+                date: moment().format('YYYY-MM-DD – HH:mm A'),
             })
             .catch((err) => {
                 console.error(err);
@@ -54,6 +58,7 @@ function Home() {
                 authorId,
                 createdAt: new Date()
             })
+            .then(res => (window.location.href = '/'))
             .catch((err) => {
                 console.error(err);
             });

@@ -12,7 +12,7 @@ function SnapshotFirebaseAdvanced() {
   const [loading, setLoading] = useState(false);
 
 
-  const ref = firebase.firestore().collection('userData').doc(currentUserId).collection('Request');
+  const ref = firebase.firestore().collection('userData').doc(currentUserId).collection('Request').orderBy('date', "desc");
 
   function getPayments() {
     setLoading(true);
@@ -54,7 +54,7 @@ function SnapshotFirebaseAdvanced() {
                   <br />
                   <strong><i className="fas fa-time"></i>Vehicle Type -  </strong> : {Requests.type}
                   <br />
-                  <strong><i className="fas fa-play"></i> {Requests.currentUserEmail} </strong>
+                  <strong><i className="fas fa-play"></i> {Requests.date} </strong>
                 </p>
               </div>
             </div>

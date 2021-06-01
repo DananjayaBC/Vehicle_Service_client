@@ -11,7 +11,6 @@ function Navb() {
         <Navbar.Collapse id="responsive-navbar-nav " >
           <Nav className="mr-auto">
             <Nav.Link href="/history">History</Nav.Link>
-            <Nav.Link href="#pricing">About US</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="/dashboard">Profile</Nav.Link>

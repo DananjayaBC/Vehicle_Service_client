@@ -12,20 +12,22 @@ function Home() {
     const currentUserEmail = currentUser ? currentUser.email : null;
     const authorEmail = currentUser ? currentUser.email : null;
     const [title, setTitle] = useState("");
-    const [ownerName, setOwnerName] = useState("");
+
 
     const [content, setContent] = useState("");
     const [type, setType] = useState("");
     const [note, setNote] = useState("");
     const [mNumber, setmNumber] = useState("");
-    const [details, setdetails] = useState("");
+
 
 
 
     const db = firebase.firestore();
 
 
-    function addRequest() {
+
+
+    function addProjects() {
         db.collection('userData')
             .doc(currentUserId)
             .collection('Request')
@@ -40,9 +42,7 @@ function Home() {
             .catch((err) => {
                 console.error(err);
             });
-    }
 
-    function addProjects() {
         db.collection('projects')
             .add({
                 title,
@@ -109,7 +109,7 @@ function Home() {
 
 
 
-                                <Button className="btn btn-primary btn-lg btn-block mb-5" onClick={() => addRequest()} onClick={() => addProjects()}>
+                                <Button className="btn btn-primary btn-lg btn-block mb-5" onClick={() => addProjects()}>
                                     Request </Button>
                             </Form>
                         </Card.Body>
